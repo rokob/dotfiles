@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Andrew Ledvina
+	email = wvvwwvw@gmail.com
+[core]
+	editor = /usr/bin/vim
+[alias]
+  la = "!git config -l | grep alias | cut -c 7-"
+  s  = status -s
+  cp = cherry-pick
+  b  = branch
+  co = checkout
+  acom = commit --amend
