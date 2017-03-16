@@ -5,9 +5,11 @@
 [core]
 	editor = /usr/bin/vim
 [alias]
-  la = "!git config -l | grep alias | cut -c 7-"
-  s  = status -s
-  cp = cherry-pick
-  b  = branch
-  co = checkout
+  la   = "!git config -l | grep alias | cut -c 7-"
+  s    = status -s
+  cp   = cherry-pick
+  b    = branch
+  co   = checkout
   acom = commit --amend
+  ll   = log --format='format:%Cblue(%ar) %Cred%h %Creset%s' --date=short -n 10
+  lld  = log --format='format:%Cblue(%ad) %Cred%h %Creset%s' --date=short
