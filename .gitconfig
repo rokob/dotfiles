@@ -1,10 +1,12 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Andrew Ledvina
+	name = Andrew Weiss
 	email = wvvwwvw@gmail.com
 [core]
 	editor = /usr/bin/vim
+	excludesfile = /Users/weiss/.gitignore_global
 [alias]
+  last = diff HEAD^
   la   = "!git config -l | grep alias | cut -c 7-"
   s    = status -s
   cp   = cherry-pick
@@ -13,3 +15,15 @@
   acom = commit --amend
   ll   = log --format='format:%Cblue(%ar) %Cred%h %Creset%s' --date=short -n 10
   lld  = log --format='format:%Cblue(%ad) %Cred%h %Creset%s' --date=short
+  cb   = "!git rev-parse --abbrev-ref HEAD"
+  pushthis = "!git push origin $(git cb):$(git cb)"
+  lf = diff-tree --no-commit-id --name-only -r HEAD
+  files = diff-tree --no-commit-id --name-only -r
+  repull = pull --rebase
+  staged = diff --staged
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

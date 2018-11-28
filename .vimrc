@@ -38,6 +38,7 @@
 "    -> Helper functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+execute pathogen#infect()
 
 set number
 
@@ -312,7 +313,17 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.js.es6 :call DeleteTrailingWS()
+autocmd BufWrite *.tsx :call DeleteTrailingWS()
 
+autocmd BufNewFile,BufRead *.js.es6   set syntax=javascript
+autocmd BufNewFile,BufRead *.tsx   set syntax=typescript
+autocmd BufNewFile,BufRead *.lalrpop   set syntax=rust
+
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching and cope displaying
