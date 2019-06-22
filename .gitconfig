@@ -4,7 +4,7 @@
 	email = wvvwwvw@gmail.com
 [core]
 	editor = /usr/bin/vim
-	excludesfile = /Users/weiss/.gitignore_global
+	excludesfile = $HOME/.gitignore_global
 [alias]
   last = diff HEAD^
   la   = "!git config -l | grep alias | cut -c 7-"
@@ -21,9 +21,3 @@
   files = diff-tree --no-commit-id --name-only -r
   repull = pull --rebase
   staged = diff --staged
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
